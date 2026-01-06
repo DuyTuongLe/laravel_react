@@ -8,13 +8,13 @@ async function handleResponse(res) {
   return data;
 }
 
-export async function getBanghi() {
-  const res = await fetch(`${API_URL}/banghi`);
+export async function getDanduong() {
+  const res = await fetch(`${API_URL}/danduong`);
   return handleResponse(res);
 }
 
-export async function createBanghi(data) {
-  const res = await fetch(`${API_URL}/banghi`, {
+export async function createDanduong(data) {
+  const res = await fetch(`${API_URL}/danduong`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -22,8 +22,8 @@ export async function createBanghi(data) {
   return handleResponse(res);
 }
 
-export async function updateBanghi(id, data) {
-  const res = await fetch(`${API_URL}/banghi/${id}`, {
+export async function updateDanduong(id, data) {
+  const res = await fetch(`${API_URL}/danduong/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -31,8 +31,8 @@ export async function updateBanghi(id, data) {
   return handleResponse(res);
 }
 
-export async function deleteBanghi(id) {
-  const res = await fetch(`${API_URL}/banghi/${id}`, {
+export async function deleteDanduong(id) {
+  const res = await fetch(`${API_URL}/danduong/${id}`, {
     method: 'DELETE',
   });
   return handleResponse(res);

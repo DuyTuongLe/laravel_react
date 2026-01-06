@@ -18,41 +18,42 @@ class HqvBanghiController extends Controller
 
     public function store(Request $request)
     {
-        $item = HqvBanghi::create(
-            $request->only([
-                'kieu',
-                'chucnang',
-                'chucnangId',
-                'noidung'
-            ])
-        );
+        $validated = $request->validate([
+            'kieu'        => 'required|string|max:255',
+            'chucnang'    => 'required|string|max:255',
+            'chucnangId'  => 'required|integer',
+            'noidung'     => 'required|string',
+        ]);
+        $item = HqvBanghi::create($validated);
 
-        return response()->json($item);
+        return response()->json($item, 201);
     }
 
     public function update(Request $request, $id) {
-        HqvBanghi::findOrFail($id);
 
-        $item = HqvBanghi::update(
-            $request->only([
-                'kieu',
-                'chucnang',
-                'chucnangId',
-                'noidung'
-            ])
-        );
+        $item = HqvBanghi::findOrFail($id);
 
-        return response()->json($item);
+        $validated = $request->validate([
+            'kieu'        => 'required|string|max:255',
+            'chucnang'    => 'required|string|max:255',
+            'chucnangId'  => 'required|integer',
+            'noidung'     => 'required|string',
+        ]);
+
+        $item->update($validated);
+
+        return response()->json($item, 200);
     }
 
     public function destroy($id)
     {
-        HqvBanghi::destroy($id);
+        $item = HqvBanghi::findOrFail($id);
+        
+        $item->delete();
 
         return response()->json([
-            'success' => true
-        ]);
+            'success' => true,
+            'message' => 'Deleted successfully'
+        ], 200);
     }
-
-
 }

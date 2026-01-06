@@ -8,13 +8,13 @@ async function handleResponse(res) {
   return data;
 }
 
-export async function getBanghi() {
-  const res = await fetch(`${API_URL}/banghi`);
+export async function getCauhinh() {
+  const res = await fetch(`${API_URL}/cauhinh`);
   return handleResponse(res);
 }
 
-export async function createBanghi(data) {
-  const res = await fetch(`${API_URL}/banghi`, {
+export async function createCauhinh(data) {
+  const res = await fetch(`${API_URL}/cauhinh`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -22,8 +22,8 @@ export async function createBanghi(data) {
   return handleResponse(res);
 }
 
-export async function updateBanghi(id, data) {
-  const res = await fetch(`${API_URL}/banghi/${id}`, {
+export async function updateCauhinh(id, data) {
+  const res = await fetch(`${API_URL}/cauhinh/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -31,8 +31,8 @@ export async function updateBanghi(id, data) {
   return handleResponse(res);
 }
 
-export async function deleteBanghi(id) {
-  const res = await fetch(`${API_URL}/banghi/${id}`, {
+export async function deleteCauhinh(id) {
+  const res = await fetch(`${API_URL}/cauhinh/${id}`, {
     method: 'DELETE',
   });
   return handleResponse(res);
