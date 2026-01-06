@@ -22,5 +22,4 @@ class HqvDanduong extends Model
             'danduong_id' 
         );
     }
-
 }

@@ -10,4 +10,7 @@ Route::put('/banghi/{id}', [HqvBanghiController::class, 'update']);
 Route::delete('/banghi/{id}', [HqvBanghiController::class, 'destroy']);
 Route::get('/cauhinh', [HqvCauhinhController::class, 'index']);
 
-Route::get('/danduong', [HqvDanduongController::class, 'index']);
+Route::prefix('menu')->group(function () {
+    Route::get('/full', [HqvDanduongController::class, 'full']);
+    Route::get('/kieu/{kieu}', [HqvDanduongController::class, 'byKieu']);
+});
