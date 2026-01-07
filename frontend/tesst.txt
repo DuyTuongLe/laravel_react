@@ -31,7 +31,7 @@ function App() {
   if (loading) return <p>Đang tải...</p>;
 
   return (
-    <div className="p-4">
+    <div style={{ padding: 20 }}>
       <h2>Danh sách menu</h2>
 
       <table border="1" cellPadding="8">
@@ -46,6 +46,7 @@ function App() {
         </tbody>
       </table>
     </div>
+    <div className="text-red-500"></div>
   );
 }
 

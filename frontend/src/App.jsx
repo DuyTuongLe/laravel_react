@@ -3,7 +3,7 @@ import { getBanghi, createBanghi } from './api/banghi';
 import { Routes, Route, Link } from 'react-router-dom'
 import Cauhinh from './pages/Cauhinh'
 import Danduong from './pages/Danduong'
-
+import './index.css';
 function App() {
   return (
     <>
