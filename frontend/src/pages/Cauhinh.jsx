@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getCauhinh } from '../api/cauhinh';
+import '../index.css'; 
 
 function App() {
   const [list, setList] = useState([]);
@@ -15,22 +16,20 @@ function App() {
   if (loading) return <p>Đang tải...</p>;
 
   return (
-    <div style={{ padding: 20 }}>
+    <div className='container'>
       <h2>Danh sách bản ghi</h2>
-
-      <table border="1" cellPadding="8">
-        <tbody>
-          {list.map(item => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.khoa}</td>
-              <td>{item.ten}</td>
-              <td>{item.giatri}</td>
-              <td>{item.mota}</td>
-            </tr>
+      <div className='kkk'>
+        {list.map(item => (
+            <div className='flex p-4' key={item.id}>
+              <div className="w-[10%]">{item.id}</div>
+              <div className="w-[20%]">{item.khoa}</div>
+              <div className="w-[30%]">{item.ten}</div>
+              <div className="w-[20%]">{item.giatri}</div>
+              <div className="w-[20%]">{item.mota}</div>
+            </div>
           ))}
-        </tbody>
-      </table>
+      </div>
+
     </div>
   );
 }
