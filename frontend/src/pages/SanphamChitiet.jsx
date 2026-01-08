@@ -19,7 +19,7 @@ function SanphamChitiet() {
     if (!item) return <p>Không tìm thấy sản phẩm</p>;
 
     return (
-        <div className="container mx-auto">
+        <div className="max-w-[1320px] mx-auto px-2">
             <div className="grid grid-cols-2 gap-6 mt-5">
                 <div>
                     <img src={productImg} className="w-full rounded" />

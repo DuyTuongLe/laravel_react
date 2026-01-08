@@ -10,3 +10,6 @@ body {
   color: #212529;
   background-color: #fff;
 }
+.menu-level-1 {
+  display: none;
+}

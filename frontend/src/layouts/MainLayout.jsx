@@ -1,16 +1,16 @@
 import { Outlet, Link } from 'react-router-dom'
+import MenuHeadTree from '../components/MenuHeadTree'
 
 function MainLayout() {
   return (
     <>
-      <nav className="flex gap-4 p-4 border-b">
-        <Link to="/cauhinh">Cấu hình</Link>
-        <Link to="/danduong">Dẫn đường</Link>
-        <Link to="/morong">Mở rộng</Link>
-        <Link to="/sanpham">Sản phẩm</Link>
-      </nav>
+      <header className="header">
+        <div className='max-w-[1320px] mx-auto px-2'>
+          <MenuHeadTree />
+        </div>
+      </header>
 
-      <main className="p-4">
+      <main className="main">
         <Outlet />
       </main>
     </>

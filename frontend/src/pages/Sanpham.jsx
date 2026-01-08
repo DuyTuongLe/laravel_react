@@ -27,7 +27,7 @@ function App() {
     if (loading) return <p>Đang tải...</p>;
 
     return (
-        <div className='container mx-auto'>
+        <div className='max-w-[1320px] mx-auto px-2'>
             <div className='kkk mt-5'>
                 <div className="grid grid-cols-4 gap-2">
                     {list.map(item => (

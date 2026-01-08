@@ -14,9 +14,13 @@ class MenuService
                 'goc_id',
                 'kieu',
                 'sapxep',
-                'hinhanh'
+                'hinhanh',
             ])
-            ->with('danduong_nn:id,danduong_id,tieude,mota')
+            ->where('danduong_nhom', 1)
+            ->with([
+                'danduong_nn:id,danduong_id,tieude,mota',
+                'danduong_url:id,rel,hash'
+            ])
             ->orderBy('sapxep')
             ->get();
 
@@ -77,6 +81,7 @@ class MenuService
                     'kieu' => $item->kieu,
                     'tieude' => optional($item->danduong_nn)->tieude,
                     'mota' => optional($item->danduong_nn)->mota,
+                    'hash' => optional($item->danduong_url)->hash,
                     'hinhanh' => $item->hinhanh,
                     'children' => $this->buildTree($items, $item->danduong_id)
                 ];

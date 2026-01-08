@@ -22,4 +22,12 @@ class HqvDanduong extends Model
             'danduong_id' 
         );
     }
+
+    public function danduong_url() {
+        return $this->hasOne(
+            HqvUrl::class,
+            'rel',
+            'danduong_id'
+        );
+    }
 }
