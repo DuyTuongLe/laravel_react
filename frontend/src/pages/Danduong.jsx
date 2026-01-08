@@ -19,7 +19,6 @@ function App() {
           <td style={{ paddingLeft: level * 20 }}>
             {item.tieude}
           </td>
-          <td>{item.kieu}</td>
         </tr>
 
         {item.children?.length > 0 &&
@@ -38,7 +37,6 @@ function App() {
         <thead>
           <tr>
             <th>Tiêu đề</th>
-            <th>Kiểu</th>
           </tr>
         </thead>
         <tbody>
