@@ -13,8 +13,8 @@ function AppRouter() {
         <Route path="/cauhinh" element={<Cauhinh />} />
         <Route path="/danduong" element={<Danduong />} />
         <Route path="/morong" element={<Morong />} />
-        <Route path="/sanpham" element={<Sanpham />} />
-        <Route path="/sanpham/:hash" element={<SanphamChitiet />} />
+        <Route path="/san-pham" element={<Sanpham />} />
+        <Route path="/san-pham/:hash" element={<SanphamChitiet />} />
       </Route>
     </Routes>
   )

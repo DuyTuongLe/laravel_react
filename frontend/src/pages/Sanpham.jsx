@@ -33,14 +33,14 @@ function App() {
                     {list.map(item => (
                         <div className="item border-2 border-red-50 rounded-md p-3" key={item.id}>
                             <div className="item-image">
-                                <Link to={`/sanpham/${item.hash}`}>
+                                <Link to={`/san-pham/${item.hash}`}>
                                     <img className="image" src={productImg} alt={item.san_pham_nn?.ten} />
                                 </Link>
                             </div>
 
                             <div className="item-info">
                                 <Link
-                                    to={`/sanpham/${item.hash}`}
+                                    to={`/san-pham/${item.hash}`}
                                     className="item-des_title font-bold line-clamp-2 my-1 block"
                                 >
                                     {item.san_pham_nn?.ten}
