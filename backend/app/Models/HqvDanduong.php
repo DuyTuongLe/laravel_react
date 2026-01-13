@@ -30,4 +30,14 @@ class HqvDanduong extends Model
             'danduong_id'
         );
     }
+
+    public function noidung()
+    {
+        return $this->hasMany(HqvNoidung::class, 'danduong', 'danduong_id');
+    }
+
+    public function sanpham()
+    {
+        return $this->hasMany(HqvSanpham::class, 'danduong', 'danduong_id');
+    }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\HqvCauhinhController;
 use App\Http\Controllers\Api\HqvDanduongController;
 use App\Http\Controllers\Api\HqvMorongController;
 use App\Http\Controllers\Api\HqvSanphamController;
+use App\Http\Controllers\Api\ResolverController;
 
 Route::get('/banghi', [HqvBanghiController::class, 'index']);
 Route::post('/banghi', [HqvBanghiController::class, 'store']);
@@ -19,4 +20,4 @@ Route::prefix('menu')->group(function () {
     Route::get('/full', [HqvDanduongController::class, 'full']);
     Route::get('/kieu/{kieu}', [HqvDanduongController::class, 'byKieu']);
 });
-
+Route::get('/resolve/{hash}', [ResolverController::class, 'resolve']);

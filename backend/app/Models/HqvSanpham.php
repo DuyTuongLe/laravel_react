@@ -10,7 +10,7 @@ class HqvSanpham extends Model
     protected $table = 'hqv_sanpham';
     protected $primaryKey = 'id';
 
-    const CREATED_AT = 'ngay_tao';
+    const CREATED_AT = 'ngaytao';
     const UPDATED_AT = 'ngaythaydoi';
 
     public function sanPham_nn() {
@@ -18,6 +18,14 @@ class HqvSanpham extends Model
             HqvSanpham_nn::class,
             'sanpham',
             'id'
+        );
+    }
+
+    public function sanPham_dd() {
+        return $this->hasOne(
+            HqvSanpham::class,
+            'danduong',
+            'danduong_id'
         );
     }
 }

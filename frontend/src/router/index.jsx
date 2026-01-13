@@ -14,7 +14,8 @@ function AppRouter() {
         <Route path="/danduong" element={<Danduong />} />
         <Route path="/morong" element={<Morong />} />
         <Route path="/san-pham" element={<Sanpham />} />
-        <Route path="/san-pham/:hash" element={<SanphamChitiet />} />
+        <Route path="/:hash" element={<SanphamChitiet />} />
+        <Route path="/:slug" element={<DynamicPage />} />
       </Route>
     </Routes>
   )
