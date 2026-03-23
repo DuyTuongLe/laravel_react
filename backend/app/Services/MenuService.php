@@ -31,43 +31,43 @@ class MenuService
      * Menu theo kieu (product)
      */
     public function byKieu(string $kieu)
-{
-    // 1️⃣ Lấy toàn bộ menu
-    $items = HqvDanduong::query()
-        ->select([
-            'danduong_id',
-            'goc_id',
-            'kieu',
-            'sapxep',
-            'hinhanh'
-        ])
-        ->with('danduong_nn:id,danduong_id,tieude,mota')
-        ->orderBy('sapxep')
-        ->get();
-
-    // 2️⃣ Lọc menu theo kieu
-    $filtered = $items->where('kieu', $kieu);
-
-    // 3️⃣ Gom cả cha để không vỡ cây
-    $neededIds = collect();
-
-    foreach ($filtered as $item) {
-        $current = $item;
-        while ($current && !$neededIds->contains($current->danduong_id)) {
-            $neededIds->push($current->danduong_id);
-            $current = $items->firstWhere(
+    {
+        // 1️⃣ Lấy toàn bộ menu
+        $items = HqvDanduong::query()
+            ->select([
                 'danduong_id',
-                $current->goc_id
-            );
+                'goc_id',
+                'kieu',
+                'sapxep',
+                'hinhanh'
+            ])
+            ->with('danduong_nn:id,danduong_id,tieude,mota')
+            ->orderBy('sapxep')
+            ->get();
+
+        // 2️⃣ Lọc menu theo kieu
+        $filtered = $items->where('kieu', $kieu);
+
+        // 3️⃣ Gom cả cha để không vỡ cây
+        $neededIds = collect();
+
+        foreach ($filtered as $item) {
+            $current = $item;
+            while ($current && !$neededIds->contains($current->danduong_id)) {
+                $neededIds->push($current->danduong_id);
+                $current = $items->firstWhere(
+                    'danduong_id',
+                    $current->goc_id
+                );
+            }
         }
+
+        // 4️⃣ Đây mới là FINAL
+        $finalItems = $items->whereIn('danduong_id', $neededIds);
+
+        // 5️⃣ Build tree
+        return $this->buildTree($finalItems);
     }
-
-    // 4️⃣ Đây mới là FINAL
-    $finalItems = $items->whereIn('danduong_id', $neededIds);
-
-    // 5️⃣ Build tree
-    return $this->buildTree($finalItems);
-}
 
     protected function buildTree($items, $parentId = 0)
     {
@@ -90,5 +90,4 @@ class MenuService
 
         return $branch;
     }
-
 }
