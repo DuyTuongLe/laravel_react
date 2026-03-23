@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\HqvDanduongController;
 use App\Http\Controllers\Api\HqvMorongController;
 use App\Http\Controllers\Api\HqvSanphamController;
 use App\Http\Controllers\Api\ResolverController;
+use App\Http\Controllers\Api\HqvSanphamHinhController;
 
 Route::get('/banghi', [HqvBanghiController::class, 'index']);
 Route::post('/banghi', [HqvBanghiController::class, 'store']);
@@ -15,6 +16,7 @@ Route::get('/cauhinh', [HqvCauhinhController::class, 'index']);
 Route::get('/morong', [HqvMorongController::class, 'index']);
 Route::get('/sanpham', [HqvSanphamController::class, 'index']);
 Route::get('/sanpham/{hash}', [HqvSanphamController::class, 'show']);
+Route::get('/hinh_san_pham', [HqvSanphamHinhController::class, 'index']);
 
 Route::prefix('menu')->group(function () {
     Route::get('/full', [HqvDanduongController::class, 'full']);
